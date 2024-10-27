@@ -15,7 +15,7 @@ class ItemRepositoryImpl @Inject constructor(
     private val itemDao: ItemDao
 ) : ItemRepository {
 
-    private val cacheExpiryDuration = 5 * 60 * 1000 // 5 minutes in milliseconds
+    private val cacheExpiryDuration = 24 * 60 * 60 * 1000 // 24 hours in milliseconds
 
     override suspend fun getItems(): UseCaseResult<List<Item>> {
         return try {
@@ -35,7 +35,7 @@ class ItemRepositoryImpl @Inject constructor(
             val apiItems = withContext(Dispatchers.IO) {
                 apiService.getItems()
                     .filter { !it.name.isNullOrBlank() }
-                    .sortedWith(compareBy({ it.listId }, { it.name }))
+                    .sortedWith(compareBy({ it.listId }, { extractNumber(it.name) }))
             }
 
             // Cache API data to database
@@ -58,4 +58,8 @@ class ItemRepositoryImpl @Inject constructor(
             }
         }
     }
+}
+
+private fun extractNumber(input: String?): Int? {
+    return input?.let { Regex("\\d+").find(it)?.value?.toInt() }
 }
