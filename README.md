@@ -20,5 +20,7 @@ This project is a native Android application built using Kotlin that fulfills th
 
 
 ## Demo
-https://github.com/user-attachments/assets/c654292d-324e-4ad1-8bc9-6e4864449e43
+https://github.com/user-attachments/assets/1965365d-bf1c-4bf2-a973-f01fe1f2dc3d
+
+
 
