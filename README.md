@@ -14,7 +14,7 @@ This project is a native Android application built using Kotlin that fulfills th
 
 ## Architecture
 
-- **MVVM**: The application utilizes the Model-View-ViewModel (MVVM) architecture for clear separation of concerns.
+- **MVVM & Clean Architecture**: The application utilizes the Model-View-ViewModel (MVVM) and clean architecture for clear separation of concerns.
 - **Hilt for Dependency Injection**: Implements Hilt to manage dependencies efficiently, enhancing code maintainability.
 - **Jetpack Compose**: The user interface is built using Jetpack Compose for a declarative UI design.
 
